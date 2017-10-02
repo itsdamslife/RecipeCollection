@@ -16,6 +16,7 @@
 		95FAFB4C1F8152E600880381 /* RecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */; };
 		95FAFB4E1F81578F00880381 /* Recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB4D1F81578F00880381 /* Recipes.plist */; };
 		95FAFB501F82B28400880381 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */; };
+		95FAFB521F82B6BF00880381 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB511F82B6BF00880381 /* ReadMe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDataSource.swift; sourceTree = "<group>"; };
 		95FAFB4D1F81578F00880381 /* Recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Recipes.plist; path = DummyFiles/Recipes.plist; sourceTree = "<group>"; };
 		95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		95FAFB511F82B6BF00880381 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		95FAFB291F814E2300880381 = {
 			isa = PBXGroup;
 			children = (
+				95FAFB511F82B6BF00880381 /* ReadMe */,
 				95FAFB341F814E2300880381 /* RecipeCollection */,
 				95FAFB331F814E2300880381 /* Products */,
 			);
@@ -136,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FAFB521F82B6BF00880381 /* ReadMe in Resources */,
 				95FAFB401F814E2400880381 /* LaunchScreen.storyboard in Resources */,
 				95FAFB3D1F814E2400880381 /* Assets.xcassets in Resources */,
 				95FAFB4E1F81578F00880381 /* Recipes.plist in Resources */,
