@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		95FAFB361F814E2300880381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB351F814E2300880381 /* AppDelegate.swift */; };
-		95FAFB381F814E2400880381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB371F814E2400880381 /* ViewController.swift */; };
 		95FAFB3B1F814E2400880381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB391F814E2400880381 /* Main.storyboard */; };
 		95FAFB3D1F814E2400880381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB3C1F814E2400880381 /* Assets.xcassets */; };
 		95FAFB401F814E2400880381 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB3E1F814E2400880381 /* LaunchScreen.storyboard */; };
+		95FAFB481F8152C000880381 /* RecipesGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB471F8152C000880381 /* RecipesGridViewController.swift */; };
+		95FAFB4A1F8152DA00880381 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB491F8152DA00880381 /* Recipe.swift */; };
+		95FAFB4C1F8152E600880381 /* RecipeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */; };
+		95FAFB4E1F81578F00880381 /* Recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB4D1F81578F00880381 /* Recipes.plist */; };
+		95FAFB501F82B28400880381 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		95FAFB321F814E2300880381 /* RecipeCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FAFB351F814E2300880381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		95FAFB371F814E2400880381 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95FAFB3A1F814E2400880381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95FAFB3C1F814E2400880381 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95FAFB3F1F814E2400880381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95FAFB411F814E2400880381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		95FAFB471F8152C000880381 /* RecipesGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesGridViewController.swift; sourceTree = "<group>"; };
+		95FAFB491F8152DA00880381 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDataSource.swift; sourceTree = "<group>"; };
+		95FAFB4D1F81578F00880381 /* Recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Recipes.plist; path = DummyFiles/Recipes.plist; sourceTree = "<group>"; };
+		95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +63,15 @@
 			isa = PBXGroup;
 			children = (
 				95FAFB351F814E2300880381 /* AppDelegate.swift */,
-				95FAFB371F814E2400880381 /* ViewController.swift */,
+				95FAFB471F8152C000880381 /* RecipesGridViewController.swift */,
+				95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */,
+				95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */,
+				95FAFB491F8152DA00880381 /* Recipe.swift */,
 				95FAFB391F814E2400880381 /* Main.storyboard */,
 				95FAFB3C1F814E2400880381 /* Assets.xcassets */,
 				95FAFB3E1F814E2400880381 /* LaunchScreen.storyboard */,
 				95FAFB411F814E2400880381 /* Info.plist */,
+				95FAFB4D1F81578F00880381 /* Recipes.plist */,
 			);
 			path = RecipeCollection;
 			sourceTree = "<group>";
@@ -126,6 +138,7 @@
 			files = (
 				95FAFB401F814E2400880381 /* LaunchScreen.storyboard in Resources */,
 				95FAFB3D1F814E2400880381 /* Assets.xcassets in Resources */,
+				95FAFB4E1F81578F00880381 /* Recipes.plist in Resources */,
 				95FAFB3B1F814E2400880381 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95FAFB381F814E2400880381 /* ViewController.swift in Sources */,
+				95FAFB4C1F8152E600880381 /* RecipeDataSource.swift in Sources */,
+				95FAFB4A1F8152DA00880381 /* Recipe.swift in Sources */,
+				95FAFB481F8152C000880381 /* RecipesGridViewController.swift in Sources */,
+				95FAFB501F82B28400880381 /* RecipeDetailViewController.swift in Sources */,
 				95FAFB361F814E2300880381 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

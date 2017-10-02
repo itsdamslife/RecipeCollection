@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Ragi Mudde</string>
+		<key>description</key>
+		<string>Ragi balls</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Breakfast</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Set Dosa</string>
+		<key>description</key>
+		<string>Thick pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Breakfast</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Fried Rice</string>
+		<key>description</key>
+		<string>A chinese cuisine</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Meal</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Stir fry</string>
+		<key>description</key>
+		<string>Upkari</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Dry</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Biryani</string>
+		<key>description</key>
+		<string>Rice mixed with vegetables in marinated curd</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Meal</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Pulao</string>
+		<key>description</key>
+		<string>Rice cooked with spices and vegetables</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Meal</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Pani puri</string>
+		<key>description</key>
+		<string>Fried puris filles with chaat</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Sev puri</string>
+		<key>description</key>
+		<string>Rice pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Dahi Puri</string>
+		<key>description</key>
+		<string>Rice pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Masala Puri</string>
+		<key>description</key>
+		<string>Rice pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Pav Bhaaji</string>
+		<key>description</key>
+		<string>Rice pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Batate Ambade</string>
+		<key>description</key>
+		<string>Potato Tikki fritters</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Snack</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Akki Roti</string>
+		<key>description</key>
+		<string>Rice pancake</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Breakfast</string>
+	</dict>
+</array>
+</plist>
