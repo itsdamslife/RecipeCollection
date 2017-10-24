@@ -29,16 +29,28 @@ class RecipesGridViewController: UICollectionViewController {
     }
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
+        let cell: RecipeCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! RecipeCell
+        cell.recipe = dataSrc.recipe(at: indexPath.row)
         return cell
     }
+// /* Alternative method to handle alternative selection */
+//    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        
+//        let rdvc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
+//        rdvc.dataSource = dataSrc
+//        rdvc.indexOfRecipe = indexPath.row
+//        
+//        self.navigationController?.pushViewController(rdvc, animated: true)
+//    }
     
-    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let rdvc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
-        rdvc.dataSource = dataSrc
-        rdvc.indexOfRecipe = indexPath.row
-        
-        self.navigationController?.pushViewController(rdvc, animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "master2detail" {
+            if let indexPath: IndexPath = self.collectionView?.indexPathsForSelectedItems?.first {
+                if let recipe = dataSrc.recipe(at: indexPath.row) {
+                    let rdvc: RecipeDetailViewController? = segue.destination as? RecipeDetailViewController
+                    rdvc?.recipe = recipe
+                }
+            }
+        }
     }
 }

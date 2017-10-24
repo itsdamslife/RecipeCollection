@@ -12,11 +12,15 @@ import UIKit
 class RecipeDetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
+    var recipe: Recipe?
     
-    weak var dataSource: RecipeDataSource!
-    var indexOfRecipe: Int!
-    
-    override func viewDidLoad() {
-        titleLabel.text = dataSource.recipe(at: indexOfRecipe)?.title ?? "Not found"
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let r = recipe {
+            titleLabel.text = r.title
+        } else {
+            titleLabel.text = "Not found"
+        }
     }
 }

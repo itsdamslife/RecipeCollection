@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9571C34A1F9F60F00080C493 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9571C3491F9F60F00080C493 /* RecipeCell.swift */; };
 		95FAFB361F814E2300880381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FAFB351F814E2300880381 /* AppDelegate.swift */; };
 		95FAFB3B1F814E2400880381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB391F814E2400880381 /* Main.storyboard */; };
 		95FAFB3D1F814E2400880381 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95FAFB3C1F814E2400880381 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9571C3491F9F60F00080C493 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		95FAFB321F814E2300880381 /* RecipeCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95FAFB351F814E2300880381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95FAFB3A1F814E2400880381 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				95FAFB351F814E2300880381 /* AppDelegate.swift */,
+				9571C3491F9F60F00080C493 /* RecipeCell.swift */,
 				95FAFB471F8152C000880381 /* RecipesGridViewController.swift */,
 				95FAFB4F1F82B28400880381 /* RecipeDetailViewController.swift */,
 				95FAFB4B1F8152E600880381 /* RecipeDataSource.swift */,
@@ -157,6 +160,7 @@
 				95FAFB4C1F8152E600880381 /* RecipeDataSource.swift in Sources */,
 				95FAFB4A1F8152DA00880381 /* Recipe.swift in Sources */,
 				95FAFB481F8152C000880381 /* RecipesGridViewController.swift in Sources */,
+				9571C34A1F9F60F00080C493 /* RecipeCell.swift in Sources */,
 				95FAFB501F82B28400880381 /* RecipeDetailViewController.swift in Sources */,
 				95FAFB361F814E2300880381 /* AppDelegate.swift in Sources */,
 			);
@@ -324,6 +328,7 @@
 				95FAFB461F814E2400880381 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
