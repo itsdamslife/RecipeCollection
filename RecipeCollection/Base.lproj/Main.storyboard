@@ -50,21 +50,31 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rwc-AF-Qmt">
                                             <rect key="frame" x="2" y="2" width="124" height="124"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example text with new line up to the five line item s on this label. one more line to go" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zng-YD-wYt">
-                                                    <rect key="frame" x="3.5" y="20.5" width="118.5" height="84"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hif-VR-9ws" customClass="GradientView" customModule="RecipeCollection" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="76" width="124" height="48"/>
+                                                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="WYV-Tg-jxv"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Example text with new line up to 2." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zng-YD-wYt">
+                                                    <rect key="frame" x="6" y="81" width="112.5" height="41"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="105" id="p5f-cz-Nxb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.95299999999999996" green="0.95899999999999996" blue="0.95499999999999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.73750822110913561" blue="0.64640688386679801" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.49537714770451258" green="0.75794499867243659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
+                                                <constraint firstItem="zng-YD-wYt" firstAttribute="bottom" secondItem="rwc-AF-Qmt" secondAttribute="bottom" constant="-2" id="08C-fn-EC1"/>
                                                 <constraint firstItem="zng-YD-wYt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rwc-AF-Qmt" secondAttribute="leading" id="3RD-09-6eD"/>
-                                                <constraint firstItem="zng-YD-wYt" firstAttribute="centerY" secondItem="rwc-AF-Qmt" secondAttribute="centerY" id="4KN-FE-DZY"/>
+                                                <constraint firstItem="hif-VR-9ws" firstAttribute="leading" secondItem="rwc-AF-Qmt" secondAttribute="leading" id="IvU-VP-jLe"/>
                                                 <constraint firstItem="zng-YD-wYt" firstAttribute="centerX" secondItem="rwc-AF-Qmt" secondAttribute="centerX" id="Ot1-g8-G6E"/>
+                                                <constraint firstAttribute="trailing" secondItem="hif-VR-9ws" secondAttribute="trailing" id="QH6-5p-cDz"/>
+                                                <constraint firstAttribute="bottom" secondItem="hif-VR-9ws" secondAttribute="bottom" id="TRX-n9-Wt4"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zng-YD-wYt" secondAttribute="trailing" id="q2D-96-nKS"/>
                                             </constraints>
                                         </view>
@@ -77,6 +87,7 @@
                                     <constraint firstItem="rwc-AF-Qmt" firstAttribute="top" secondItem="dUo-1D-hMB" secondAttribute="top" constant="2" id="aYg-kv-6p8"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="gradient" destination="hif-VR-9ws" id="Pkr-m5-TXs"/>
                                     <outlet property="recipeTitleLabel" destination="zng-YD-wYt" id="4WE-OM-SjF"/>
                                     <segue destination="24k-CL-nMZ" kind="show" identifier="master2detail" id="yi0-IL-MAw"/>
                                 </connections>

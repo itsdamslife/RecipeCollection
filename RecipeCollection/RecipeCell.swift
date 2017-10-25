@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class RecipeCell: UICollectionViewCell {
-   @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var recipeTitleLabel: UILabel!
+    @IBOutlet weak var gradient: GradientView!
     var recipe: Recipe? {
         didSet {
             recipeTitleLabel.text = recipe?.title ?? "NOT FOUND"
