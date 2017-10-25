@@ -12,6 +12,7 @@ import UIKit
 class RecipesGridViewController: UICollectionViewController {
     
     let cellIdentifier = "RecipeCell"
+    let secHdrIdentifier = "sectionheader"
     let dataSrc = RecipeDataSource()
     
     override func viewDidLoad() {
@@ -21,11 +22,19 @@ class RecipesGridViewController: UICollectionViewController {
     }
     
     public override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return dataSrc.numberOfSections()
     }
     
     public override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSrc.recipeCount()
+        return dataSrc.recipeCount(at: section)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let secHeaderView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: secHdrIdentifier, for: indexPath) as! SectionHeaderView
+        if let title: String = dataSrc.title(at: indexPath.section) {
+            secHeaderView.title = title
+        }
+        return secHeaderView
     }
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

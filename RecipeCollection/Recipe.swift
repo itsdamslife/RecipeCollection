@@ -19,6 +19,10 @@ enum RecipeType: String {
     case Snack = "Snack"
     case Meal = "Meal"
     case None = "None"
+    
+//    subscript(index: Int) {
+//    
+//    }
 }
 
 struct Recipe {

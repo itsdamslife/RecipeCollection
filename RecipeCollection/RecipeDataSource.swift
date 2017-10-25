@@ -19,6 +19,42 @@ class RecipeDataSource {
         recipes = RecipeDataSource.loadRecipesFromDisk()
     }
     
+    // MARK: New methods
+    public func numberOfSections() -> Int {
+//        recipes.reduce(0) { result, recipe in
+//
+//        }
+        return 5
+    }
+    
+    public func title(at section: Int) -> String? {
+        var title: String? = nil
+        if section == 0 { title = RecipeType.Breakfast.rawValue }
+        else if section == 1 { title = RecipeType.Dry.rawValue }
+        else if section == 2 { title = RecipeType.Gravy.rawValue }
+        else if section == 3 { title = RecipeType.Snack.rawValue }
+        else if section == 4 { title = RecipeType.Meal.rawValue }
+        return title
+    }
+    
+    public func recipeCount(at section: Int) -> Int {
+        let count = recipes.reduce(0) { result, recipe in
+            var res = result
+            if section == 0, recipe.type == .Breakfast { res += 1 }
+            else if section == 1, recipe.type == .Dry { res += 1 }
+            else if section == 2, recipe.type == .Gravy { res += 1 }
+            else if section == 3, recipe.type == .Snack { res += 1 }
+            else if section == 4, recipe.type == .Meal { res += 1 }
+            return res
+        }
+        return count
+    }
+    
+    func recipe(at indexPath: IndexPath) -> Recipe? {
+        return (recipes.count > indexPath.row) ? recipes[indexPath.row] : nil
+    }
+    
+    // MARK: Old methods
     public func recipeCount() -> Int {
         return recipes.count
     }
