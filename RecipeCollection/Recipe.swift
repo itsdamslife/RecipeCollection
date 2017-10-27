@@ -20,9 +20,48 @@ enum RecipeType: String {
     case Meal = "Meal"
     case None = "None"
     
-//    subscript(index: Int) {
-//    
-//    }
+    static var numberOfTypes: Int {
+        get {
+            return 5
+        }
+    }
+    subscript(index: Int) -> RecipeType {
+        get {
+            switch index {
+            case 0:
+                return .Breakfast
+            case 1:
+                return .Dry
+            case 2:
+                return .Gravy
+            case 3:
+                return .Snack
+            case 4:
+                return .Meal
+            default:
+                return .None
+            }
+        }
+    }
+    
+    subscript(type: String) -> Int {
+        get {
+            switch type {
+            case RecipeType.Breakfast.rawValue:
+                return 0
+            case RecipeType.Dry.rawValue:
+                return 1
+            case RecipeType.Gravy.rawValue:
+                return 2
+            case RecipeType.Snack.rawValue:
+                return 3
+            case RecipeType.Meal.rawValue:
+                return 4
+            default:
+                return 5
+            }
+        }
+    }
 }
 
 struct Recipe {

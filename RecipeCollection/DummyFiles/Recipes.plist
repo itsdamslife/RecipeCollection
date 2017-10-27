@@ -4,6 +4,16 @@
 <array>
 	<dict>
 		<key>title</key>
+		<string>Kadai Paneer</string>
+		<key>description</key>
+		<string>Mix of cottage cheese with capsicum and bell peppers</string>
+		<key>imageURL</key>
+		<string></string>
+		<key>type</key>
+		<string>Gravy</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>Ragi Mudde</string>
 		<key>description</key>
 		<string>Ragi balls</string>

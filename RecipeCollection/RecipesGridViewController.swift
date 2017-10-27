@@ -39,7 +39,7 @@ class RecipesGridViewController: UICollectionViewController {
     
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecipeCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! RecipeCell
-        cell.recipe = dataSrc.recipe(at: indexPath.row)
+        cell.recipe = dataSrc.recipe(at: indexPath)
         return cell
     }
 // /* Alternative method to handle alternative selection */
