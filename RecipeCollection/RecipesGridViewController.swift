@@ -62,4 +62,15 @@ class RecipesGridViewController: UICollectionViewController {
             }
         }
     }
+    
+    @IBAction func addNewRecipe(_ sender: Any) {
+        if let indexPath = dataSrc.addNewRecipe() {
+            self.updateCollectionView(indexPath)
+        }
+    }
+    
+    func updateCollectionView(_ indexPath: IndexPath) {
+        self.collectionView?.insertItems(at: [indexPath])
+    }
+    
 }

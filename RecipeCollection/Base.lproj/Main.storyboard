@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mX0-OW-oib">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mX0-OW-oib">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,7 +99,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pE-Mz-TZg">
-                                    <rect key="frame" x="24" y="8" width="327" height="34"/>
+                                    <rect key="frame" x="16" y="16" width="343" height="18"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -120,7 +120,13 @@
                             <outlet property="delegate" destination="W35-0c-Mru" id="sgK-qw-tWp"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="a3B-AS-xxr"/>
+                    <navigationItem key="navigationItem" id="a3B-AS-xxr">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KW4-AD-JaQ">
+                            <connections>
+                                <action selector="addNewRecipe:" destination="W35-0c-Mru" id="4xN-bz-PFb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uan-oP-I9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

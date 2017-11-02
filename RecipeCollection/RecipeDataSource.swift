@@ -53,7 +53,18 @@ class RecipeDataSource {
         }[indexPath.row]
     }
     
-    // MARK: Old methods
+    func indexPath(of recipe: Recipe) -> IndexPath {
+        var idp = IndexPath(row: 0, section: 0)
+        for value in recipes {
+            if value.title == recipe.title {
+                idp.section = value.type[value.type.rawValue]
+                idp.row = recipeCount(at: idp.section) - 1
+                break
+            }
+        }
+        return idp
+    }
+    
     public func recipeCount() -> Int {
         return recipes.count
     }
@@ -62,15 +73,40 @@ class RecipeDataSource {
         return (recipes.count > index) ? recipes[index] : nil
     }
     
-    public func addRecipe(recipe: Recipe) {
-        
+    public func addRecipe(recipe: Recipe) -> Bool {
+        recipes.append(recipe)
+        return true
     }
     
     public func deleteRecipe(recipe: Recipe) {
         
+        var i = 0
+        for (index, value) in recipes.enumerated() {
+            if value.title == recipe.title {
+                i = index
+                break
+            }
+        }
+        recipes.remove(at: i)
     }
     
-    private class func loadRecipesFromDisk() -> [Recipe] {
+    fileprivate class func parseRecipes(recipesJSON: [RecipeJSON]) -> [Recipe] {
+        var recipes: [Recipe] = [Recipe]()
+        for recipeJSON in recipesJSON {
+            do {
+                let recipe = try Recipe(recipe: recipeJSON)
+                recipes.append(recipe)
+            } catch {
+                print("FATAL ERROR : \(recipeJSON)")
+            }
+        }
+        return recipes
+    }
+    
+}
+
+extension RecipeDataSource {
+    fileprivate class func loadRecipesFromDisk() -> [Recipe] {
         
         var recipes = [Recipe]()
         guard let recipesFilePath = Bundle.main.path(forResource: "Recipes", ofType: "plist") else {
@@ -90,17 +126,34 @@ class RecipeDataSource {
         return recipes
     }
     
-    private class func parseRecipes(recipesJSON: [RecipeJSON]) -> [Recipe] {
-        var recipes: [Recipe] = [Recipe]()
-        for recipeJSON in recipesJSON {
+    func addNewRecipe() -> IndexPath? {
+        var newtitle = ""
+        // Copied and added this file(2.5MB) --> `/usr/share/dict/web2` to the project
+        if let wordsFilePath = Bundle.main.path(forResource: "web2", ofType: nil) {
             do {
-                let recipe = try Recipe(recipe: recipeJSON)
-                recipes.append(recipe)
-            } catch {
-                print("FATAL ERROR : \(recipeJSON)")
+                let wordsString = try String(contentsOfFile: wordsFilePath)
+                let wordLines = wordsString.components(separatedBy: .newlines)
+                let randomLine = wordLines[numericCast(arc4random_uniform(numericCast(wordLines.count)))]
+                newtitle = randomLine
+            } catch { // contentsOfFile throws an error
+                print("Error: \(error)")
             }
         }
-        return recipes
+        
+        let typ = RecipeType.None
+        let type: RecipeType = typ[Int(arc4random_uniform(UInt32(RecipeType.numberOfTypes)))]
+        
+        var r = Recipe(title: newtitle, type: type)
+        r.description = "Added \(newtitle) recipe now to \(type.rawValue)"
+        
+        print("NEW RECIPE: \(r.description ?? "")")
+        
+        if self.addRecipe(recipe: r) {
+            return self.indexPath(of: r)
+        }
+        
+        return nil
     }
-    
 }
+
+

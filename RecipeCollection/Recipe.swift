@@ -66,9 +66,9 @@ enum RecipeType: String {
 
 struct Recipe {
     let title: String
-    let description: String?
+    var description: String?
     let type: RecipeType
-    let imageURL: String?
+    var imageURL: String?
     
     init(recipe: RecipeJSON) throws {
         guard let title = recipe["title"] else {
@@ -84,5 +84,10 @@ struct Recipe {
         } else {
             self.type = .None
         }
+    }
+    
+    init(title: String, type: RecipeType) {
+        self.title = title
+        self.type = type
     }
 }
