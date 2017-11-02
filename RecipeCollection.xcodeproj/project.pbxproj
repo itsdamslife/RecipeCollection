@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		950C3AA51FAB373D00221F19 /* web2 in Resources */ = {isa = PBXBuildFile; fileRef = 950C3AA41FAB373D00221F19 /* web2 */; };
+		950C3AA71FAB41F300221F19 /* RecipesFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950C3AA61FAB41F300221F19 /* RecipesFlowLayout.swift */; };
 		9571C34A1F9F60F00080C493 /* RecipeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9571C3491F9F60F00080C493 /* RecipeCell.swift */; };
 		9571C34C1FA05BD70080C493 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9571C34B1FA05BD70080C493 /* GradientView.swift */; };
 		9571C34E1FA063570080C493 /* SectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9571C34D1FA063570080C493 /* SectionHeaderView.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		950C3AA41FAB373D00221F19 /* web2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = web2; path = DummyFiles/web2; sourceTree = "<group>"; };
+		950C3AA61FAB41F300221F19 /* RecipesFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesFlowLayout.swift; sourceTree = "<group>"; };
 		9571C3491F9F60F00080C493 /* RecipeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCell.swift; sourceTree = "<group>"; };
 		9571C34B1FA05BD70080C493 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9571C34D1FA063570080C493 /* SectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				95FAFB351F814E2300880381 /* AppDelegate.swift */,
+				950C3AA61FAB41F300221F19 /* RecipesFlowLayout.swift */,
 				9571C3491F9F60F00080C493 /* RecipeCell.swift */,
 				9571C34D1FA063570080C493 /* SectionHeaderView.swift */,
 				95FAFB471F8152C000880381 /* RecipesGridViewController.swift */,
@@ -175,6 +178,7 @@
 				9571C34C1FA05BD70080C493 /* GradientView.swift in Sources */,
 				95FAFB501F82B28400880381 /* RecipeDetailViewController.swift in Sources */,
 				95FAFB361F814E2300880381 /* AppDelegate.swift in Sources */,
+				950C3AA71FAB41F300221F19 /* RecipesFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

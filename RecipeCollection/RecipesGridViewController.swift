@@ -71,14 +71,20 @@ class RecipesGridViewController: UICollectionViewController {
     
     func updateCollectionView(_ indexPath: IndexPath) {
         
+        let layout = collectionViewLayout as! RecipesFlowLayout
+        layout.appearingIndexPath = indexPath
+
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 0.65,
                        initialSpringVelocity: 0.0,
                        options: .curveEaseInOut,
                        animations: { [unowned self] in
-                        self.collectionView?.insertItems(at: [indexPath])
-        }, completion: nil)
+                            self.collectionView?.insertItems(at: [indexPath])
+                       },
+                       completion: { finished in
+                            layout.appearingIndexPath = nil
+                       })
     }
     
 }
