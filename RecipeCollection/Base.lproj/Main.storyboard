@@ -13,11 +13,15 @@
         <!--Navigation Controller-->
         <scene sceneID="p7b-du-oUY">
             <objects>
-                <navigationController id="mX0-OW-oib" sceneMemberID="viewController">
+                <navigationController toolbarHidden="NO" id="mX0-OW-oib" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="79K-8H-KII">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c7K-hO-PPl">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="W35-0c-Mru" kind="relationship" relationship="rootViewController" id="PV1-dp-tgL"/>
                     </connections>
@@ -129,6 +133,13 @@
                             <outlet property="delegate" destination="W35-0c-Mru" id="sgK-qw-tWp"/>
                         </connections>
                     </collectionView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="WMw-kl-JZP">
+                            <connections>
+                                <action selector="deleteRecipe:" destination="W35-0c-Mru" id="Vec-9I-mS9"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="a3B-AS-xxr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KW4-AD-JaQ">
                             <connections>
@@ -136,6 +147,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButton" destination="KW4-AD-JaQ" id="3B3-tM-mOw"/>
                         <segue destination="24k-CL-nMZ" kind="show" identifier="master2detail" id="e17-16-Sic"/>

@@ -43,6 +43,17 @@ class RecipeDataSource {
         return count
     }
     
+    @discardableResult
+    public func deleteRecipe(at indexPath: IndexPath) -> Bool {
+        if let r = recipe(at: indexPath) {
+            deleteRecipe(recipe: r)
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
     func recipe(at indexPath: IndexPath) -> Recipe? {
         guard let typ = RecipeType(rawValue: "None") else { return nil }
         return recipes.filter {
@@ -51,6 +62,7 @@ class RecipeDataSource {
             }
             return false
         }[indexPath.row]
+        // TODO: Index out of range error after a delete
     }
     
     func indexPath(of recipe: Recipe) -> IndexPath {

@@ -26,6 +26,21 @@ class RecipesGridViewController: UICollectionViewController {
         layout.itemSize = CGSize(width: width, height: width)
     }
     
+    /// MARK: Add selectors "#selector(RecipesGridViewController.deleteRecipe(_:))"
+    @IBAction func deleteRecipe(_ sender: Any?) {
+        guard let indices2Del = collectionView?.indexPathsForSelectedItems else {
+            return
+        }
+        
+        for indexPath in indices2Del {
+            // Remove from model
+            dataSrc.deleteRecipe(at: indexPath)
+        }
+        
+        // Update the view
+        collectionView?.deleteItems(at: indices2Del)
+    }
+    
     public override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return dataSrc.numberOfSections()
     }
