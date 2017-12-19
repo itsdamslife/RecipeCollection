@@ -83,9 +83,6 @@ class RecipesGridViewController: UICollectionViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard !self.isEditing else {
-            return
-        }
         if segue.identifier == "master2detail" {
             let rdvc: RecipeDetailViewController? = segue.destination as? RecipeDetailViewController
             rdvc?.recipe = sender as? Recipe
