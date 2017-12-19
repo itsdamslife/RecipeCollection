@@ -11,11 +11,16 @@ import UIKit
 
 class RecipesGridViewController: UICollectionViewController {
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     let cellIdentifier = "RecipeCell"
     let secHdrIdentifier = "sectionheader"
     let dataSrc = RecipeDataSource()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.setToolbarHidden(true, animated: false)
+        navigationItem.leftBarButtonItem = editButtonItem
         let width = collectionView!.frame.width / 3
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
@@ -40,26 +45,50 @@ class RecipesGridViewController: UICollectionViewController {
     public override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RecipeCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! RecipeCell
         cell.recipe = dataSrc.recipe(at: indexPath)
+        cell.isEditing = isEditing
         return cell
     }
-// /* Alternative method to handle alternative selection */
-//    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        
-//        let rdvc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "RecipeDetailViewController") as! RecipeDetailViewController
-//        rdvc.dataSource = dataSrc
-//        rdvc.indexOfRecipe = indexPath.row
-//        
-//        self.navigationController?.pushViewController(rdvc, animated: true)
-//    }
+ 
+    public override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if self.isEditing {
+            navigationController?.setToolbarHidden(false, animated: true)
+        } else {
+            performSegue(withIdentifier: "master2detail", sender: dataSrc.recipe(at: indexPath))
+        }
+    }
+    
+    public override func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if isEditing {
+            if collectionView.indexPathsForSelectedItems?.count == 0 {
+                navigationController?.setToolbarHidden(true, animated: true)
+            }
+        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        addButton.isEnabled = !editing
+        collectionView?.allowsMultipleSelection = editing
+        let indpaths = collectionView?.indexPathsForVisibleItems
+        for ip in indpaths! {
+            collectionView!.deselectItem(at: ip, animated: false)
+            let cell = collectionView!.cellForItem(at: ip) as? RecipeCell
+            cell?.isEditing = editing
+        }
+        
+        if !editing {
+            navigationController?.setToolbarHidden(true, animated: animated)
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard !self.isEditing else {
+            return
+        }
         if segue.identifier == "master2detail" {
-            if let indexPath: IndexPath = self.collectionView?.indexPathsForSelectedItems?.first {
-                if let recipe = dataSrc.recipe(at: indexPath.row) {
-                    let rdvc: RecipeDetailViewController? = segue.destination as? RecipeDetailViewController
-                    rdvc?.recipe = recipe
-                }
-            }
+            let rdvc: RecipeDetailViewController? = segue.destination as? RecipeDetailViewController
+            rdvc?.recipe = sender as? Recipe
         }
     }
     

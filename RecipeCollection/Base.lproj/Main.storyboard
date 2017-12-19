@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mX0-OW-oib">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="mX0-OW-oib">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -67,13 +67,22 @@
                                                     <color key="textColor" red="0.95299999999999996" green="0.95899999999999996" blue="0.95499999999999996" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="rAQ-5K-Y54">
+                                                    <rect key="frame" x="51" y="94" width="22" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="22" id="aKQ-nS-eLW"/>
+                                                        <constraint firstAttribute="height" constant="22" id="tiA-u0-BvK"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.49537714770451258" green="0.75794499867243659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="zng-YD-wYt" firstAttribute="bottom" secondItem="rwc-AF-Qmt" secondAttribute="bottom" constant="-2" id="08C-fn-EC1"/>
                                                 <constraint firstItem="zng-YD-wYt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rwc-AF-Qmt" secondAttribute="leading" id="3RD-09-6eD"/>
                                                 <constraint firstItem="hif-VR-9ws" firstAttribute="leading" secondItem="rwc-AF-Qmt" secondAttribute="leading" id="IvU-VP-jLe"/>
+                                                <constraint firstAttribute="bottom" secondItem="rAQ-5K-Y54" secondAttribute="bottom" constant="8" id="Oll-nl-lsP"/>
                                                 <constraint firstItem="zng-YD-wYt" firstAttribute="centerX" secondItem="rwc-AF-Qmt" secondAttribute="centerX" id="Ot1-g8-G6E"/>
+                                                <constraint firstItem="rAQ-5K-Y54" firstAttribute="centerX" secondItem="rwc-AF-Qmt" secondAttribute="centerX" id="PrY-RJ-hwk"/>
                                                 <constraint firstAttribute="trailing" secondItem="hif-VR-9ws" secondAttribute="trailing" id="QH6-5p-cDz"/>
                                                 <constraint firstAttribute="bottom" secondItem="hif-VR-9ws" secondAttribute="bottom" id="TRX-n9-Wt4"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zng-YD-wYt" secondAttribute="trailing" id="q2D-96-nKS"/>
@@ -88,9 +97,9 @@
                                     <constraint firstItem="rwc-AF-Qmt" firstAttribute="top" secondItem="dUo-1D-hMB" secondAttribute="top" constant="2" id="aYg-kv-6p8"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="checkImageView" destination="rAQ-5K-Y54" id="MU0-Rd-d1v"/>
                                     <outlet property="gradient" destination="hif-VR-9ws" id="Pkr-m5-TXs"/>
                                     <outlet property="recipeTitleLabel" destination="zng-YD-wYt" id="4WE-OM-SjF"/>
-                                    <segue destination="24k-CL-nMZ" kind="show" identifier="master2detail" id="yi0-IL-MAw"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -127,6 +136,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="KW4-AD-JaQ" id="3B3-tM-mOw"/>
+                        <segue destination="24k-CL-nMZ" kind="show" identifier="master2detail" id="e17-16-Sic"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uan-oP-I9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -163,4 +176,7 @@
             <point key="canvasLocation" x="741.60000000000002" y="270.31484257871068"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Unchecked" width="22" height="22"/>
+    </resources>
 </document>

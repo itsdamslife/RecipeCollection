@@ -12,6 +12,22 @@ import UIKit
 class RecipeCell: UICollectionViewCell {
     @IBOutlet weak var recipeTitleLabel: UILabel!
     @IBOutlet weak var gradient: GradientView!
+    @IBOutlet weak var checkImageView: UIImageView!
+    
+    public var isEditing: Bool = false {
+        didSet {
+            checkImageView.isHidden = !isEditing
+        }
+    }
+    
+    override var isSelected: Bool {
+        didSet {
+            if isEditing {
+                checkImageView.image = UIImage(named: (isSelected ? "Checked" : "Unchecked"))
+            }
+        }
+    }
+    
     var recipe: Recipe? {
         didSet {
             recipeTitleLabel.text = recipe?.title ?? "NOT FOUND"
