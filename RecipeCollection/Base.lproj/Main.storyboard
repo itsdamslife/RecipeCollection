@@ -134,11 +134,13 @@
                         </connections>
                     </collectionView>
                     <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="t1J-85-ydr"/>
                         <barButtonItem systemItem="trash" id="WMw-kl-JZP">
                             <connections>
                                 <action selector="deleteRecipe:" destination="W35-0c-Mru" id="Vec-9I-mS9"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="tzh-f5-Y6X"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="a3B-AS-xxr">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="KW4-AD-JaQ">
