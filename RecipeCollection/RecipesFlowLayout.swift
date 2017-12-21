@@ -10,7 +10,7 @@ import UIKit
 
 class RecipesFlowLayout: UICollectionViewFlowLayout {
     var appearingIndexPath: IndexPath?
-    
+    var disappearingItemsIndexPaths: [IndexPath]?
     override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = super.initialLayoutAttributesForAppearingItem(at: itemIndexPath)
 
@@ -24,4 +24,18 @@ class RecipesFlowLayout: UICollectionViewFlowLayout {
         }
         return attributes
     }
+    
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath)
+        
+        if let indexPaths = disappearingItemsIndexPaths,
+            let attributes = attributes,
+            indexPaths.contains(itemIndexPath) {
+                    attributes.alpha = 1.0
+                    attributes.transform = CGAffineTransform(scaleX: 0.1,y: 0.1)
+                    attributes.zIndex = -1
+        }
+        return attributes
+    }
+    
 }
