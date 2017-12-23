@@ -20,6 +20,26 @@ class RecipeCell: UICollectionViewCell {
         }
     }
     
+    var moving: Bool = false {
+        didSet {
+            let alpha: CGFloat = moving ? 0.0 : 1.0
+            recipeTitleLabel.alpha = alpha
+            gradient.alpha = alpha
+        }
+    }
+    
+    var snapshot: UIView? {
+        get {
+            let snapshot = snapshotView(afterScreenUpdates: true)
+            let layer = snapshot?.layer
+            layer?.masksToBounds = false
+            layer?.shadowOffset = CGSize(width: -5.0, height: 0.0)
+            layer?.shadowRadius = 5.0
+            layer?.shadowOpacity = 0.4
+            return snapshot
+        }
+    }
+    
     override var isSelected: Bool {
         didSet {
             if isEditing {

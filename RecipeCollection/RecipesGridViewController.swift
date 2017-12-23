@@ -9,21 +9,95 @@
 import Foundation
 import UIKit
 
+let ENABLE_CELL_MOVEMENT: Bool = false
+
 class RecipesGridViewController: UICollectionViewController {
     
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     let cellIdentifier = "RecipeCell"
     let secHdrIdentifier = "sectionheader"
+    
     let dataSrc = RecipeDataSource()
+    
+    private var snapshot: UIView?
+    private var sourceIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setToolbarHidden(true, animated: false)
         navigationItem.leftBarButtonItem = editButtonItem
+        
         let width = collectionView!.frame.width / 3
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: width)
+
+        if ENABLE_CELL_MOVEMENT {
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+            collectionView?.addGestureRecognizer(longPress)
+        }
+    }
+    
+    // For moving cells
+    func handleLongPress(_ recognizer: UILongPressGestureRecognizer) -> Void {
+        print("Long press handled!!")
+        
+        guard !isEditing else { return }
+        
+        let location = recognizer.location(in: collectionView)
+        let indexPath = collectionView!.indexPathForItem(at: location)
+        
+        switch recognizer.state {
+        case .began:
+            if let indexPath = indexPath {
+                sourceIndexPath = indexPath
+                let cell = collectionView!.cellForItem(at: indexPath) as! RecipeCell
+                snapshot = cell.snapshot
+                updateSnapshotView(center: cell.center, transform: CGAffineTransform.identity, alpha: 0.0)
+                collectionView!.addSubview(snapshot!)
+                UIView.animate(withDuration: 0.25, animations: { [unowned self] in
+                    self.updateSnapshotView(center: cell.center, transform: CGAffineTransform.init(scaleX: 1.05, y: 1.05), alpha: 0.95)
+                    cell.moving = true
+                })
+            }
+        case .changed:
+            print("changed")
+            self.snapshot!.center = location
+            if let ip = indexPath {
+                // Need to add data source modifications.
+                collectionView!.moveItem(at: sourceIndexPath!, to: ip)
+            }
+        case .possible:
+            print("Possible")
+            fallthrough
+        case .ended:
+            print("ended")
+            fallthrough
+        case .cancelled:
+            print("cancelled")
+            fallthrough
+        case .failed:
+            print("failed")
+            fallthrough
+        default:
+            let cell = collectionView!.cellForItem(at: sourceIndexPath!) as! RecipeCell
+            UIView.animate(withDuration: 0.25, animations: { [unowned self] in
+                self.updateSnapshotView(center: cell.center, transform: CGAffineTransform.identity, alpha: 0.0)
+                cell.moving = false
+            }, completion: { [unowned self] finished in
+                self.snapshot!.removeFromSuperview()
+                self.snapshot = nil
+            })
+        }
+    }
+    
+    
+    func updateSnapshotView(center: CGPoint, transform: CGAffineTransform, alpha: CGFloat) {
+        if let snapshot = snapshot {
+            snapshot.center = center
+            snapshot.transform = transform
+            snapshot.alpha = alpha
+        }
     }
     
     /// MARK: Add selectors "#selector(RecipesGridViewController.deleteRecipe(_:))"
@@ -32,13 +106,24 @@ class RecipesGridViewController: UICollectionViewController {
             return
         }
         
+        let layout = collectionViewLayout as! RecipesFlowLayout
+        layout.disappearingItemsIndexPaths = indices2Del
+        
         for indexPath in indices2Del {
             // Remove from model
             dataSrc.deleteRecipe(at: indexPath)
         }
         
+        
         // Update the view
-        collectionView?.deleteItems(at: indices2Del)
+        UIView.animate(withDuration: 0.65,
+        delay: 0.0,
+        options: .curveEaseIn,
+        animations: { [unowned self] in
+            self.collectionView?.deleteItems(at: indices2Del)
+        }, completion: { _ in
+            layout.disappearingItemsIndexPaths = nil
+        })
     }
     
     public override func numberOfSections(in collectionView: UICollectionView) -> Int {
