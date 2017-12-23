@@ -56,12 +56,18 @@ class RecipeDataSource {
     
     func recipe(at indexPath: IndexPath) -> Recipe? {
         guard let typ = RecipeType(rawValue: "None") else { return nil }
-        return recipes.filter {
+        let recipeList: [Recipe] = recipes.filter {
             if $0.type == typ[indexPath.section] {
                 return true
             }
             return false
-        }[indexPath.row]
+        }
+        
+        if recipeList.count > indexPath.row {
+            return recipeList[indexPath.row]
+        }
+        
+        return nil
         // TODO: Index out of range error after a delete
     }
     
